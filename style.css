@@ -1,0 +1,35 @@
+body{
+    margin: 0px;
+
+}
+
+form{
+    background-color: darkseagreen;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    align-items: flex-start;
+
+
+}
+
+input{
+
+    border-radius: 10px;
+    padding: 5px;
+    align-items: stretch;
+}
+
+th,tr{
+    border-collapse: collapse;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+tbody > tr{
+    border-collapse: collapse;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black; 
+}
