@@ -68,6 +68,33 @@
         </select>
         <input type="submit" value="Submit"> 
     </form>
+
+    <label for="filterName">Filter by Name:</label>
+    <input type="text" id="filterName">
+
+    <label for="filterMobile">Filter by Mobile Number:</label>
+    <input type="text" id="filterMobile">
+
+
+    <label for="filterType">Filter by Business Type:</label>
+    <select id="filterType">
+        <option value="all">All</option>
+        <option value="small business">Small Business</option>
+        <option value="Entreprise">Entreprise</option>
+        <option value="Entreprenuer">Entreprenuer</option>
+    </select>
+    
+    <label for="filterPayment">Filter by Payment Method:</label>
+    <select id="filterPayment">
+        <option value="all">All</option>
+        <option value="cash">Cash on Payment</option>
+        <option value="upi">UPI</option>
+        <option value="card">Card on Payment</option>
+    </select>
+    
+    <button onclick="filterMerchants()">Filter</button>
+    
+
     <table id="employeeList">
         <thead>
             <tr>
@@ -94,3 +121,4 @@
     </table>
     <script src="java.js"></script>
 </body>
+                                                                                                               

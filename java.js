@@ -1,3 +1,7 @@
+
+var formdataarray = JSON.parse(localStorage.getItem('formdataarray')) || [];
+
+
 let values = null;
 function onFormSubmit() {
     if (validate()) {
@@ -182,5 +186,54 @@ function getSelectedRadioValue(radioGroupName) {
         }
     }
 
-    return null; // Return null if none is selected
+    return null;
+}
+
+function filterMerchants() {
+    const selectedType = document.getElementById("filterType").value;
+    const selectedPayment = document.getElementById("filterPayment").value;
+    const filterName = document.getElementById("filterName").value.toLowerCase();
+    const filterMobile = document.getElementById("filterMobile").value;
+
+
+    const filteredMerchants = formdataarray.filter(merchant => {
+        const nameMatch = merchant.name.toLowerCase().includes(filterName);
+        const mobileMatch = merchant.number.includes(filterMobile);
+        const typeMatch = selectedType === 'all' || merchant.small === selectedType;
+        const paymentMatch = selectedPayment === 'all' || merchant.payment === selectedPayment;
+
+        return nameMatch && mobileMatch && typeMatch && paymentMatch;
+    });
+
+    displayMerchants(filteredMerchants);
+}
+
+function displayMerchants(merchants) {
+    const tableBody = document.querySelector("#employeeList tbody");
+    tableBody.innerHTML = '';
+
+    merchants.forEach(formData => {
+        const newRow = tableBody.insertRow();
+        // Insert cells and populate data similar to your insertNewRecord function
+        // ...
+
+        // Example for inserting cells, modify as needed
+        newRow.insertCell().textContent = formData.name;
+        newRow.insertCell().textContent = formData.email;
+        newRow.insertCell().textContent = formData.number;
+        newRow.insertCell().textContent = formData.website;
+        newRow.insertCell().textContent = formData.contact;
+        newRow.insertCell().textContent = formData.phone;
+        newRow.insertCell().textContent = formData.another;
+        newRow.insertCell().textContent = formData.notes;
+        newRow.insertCell().textContent = formData.small;
+        newRow.insertCell().textContent = formData.category;
+        newRow.insertCell().textContent = formData.commission;
+        newRow.insertCell().textContent = formData.date;
+        newRow.insertCell().textContent = formData.file;
+        newRow.insertCell().textContent = formData.yes;
+        newRow.insertCell().textContent = formData.payment;
+        newRow.insertCell().innerHTML = `<a onClick="onEdit(this)">Edit</a>
+                                         <a onClick="onDelete(this)">Delete</a>`;
+    });
 }

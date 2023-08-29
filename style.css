@@ -33,3 +33,7 @@ tbody > tr{
     border-radius: 10px;
     border: 2px solid black; 
 }
+.filter{
+    display: flex;
+    flex-direction: row;
+}
