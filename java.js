@@ -4,7 +4,7 @@ var formdataarray = JSON.parse(localStorage.getItem('formdataarray')) || [];
 
 let values = null;
 function onFormSubmit() {
-    if (validate()) {
+    if (validate()) {              
         let formData = readFormData();
         if (values == null)
             insertNewRecord(formData);
@@ -214,10 +214,6 @@ function displayMerchants(merchants) {
 
     merchants.forEach(formData => {
         const newRow = tableBody.insertRow();
-        // Insert cells and populate data similar to your insertNewRecord function
-        // ...
-
-        // Example for inserting cells, modify as needed
         newRow.insertCell().textContent = formData.name;
         newRow.insertCell().textContent = formData.email;
         newRow.insertCell().textContent = formData.number;
